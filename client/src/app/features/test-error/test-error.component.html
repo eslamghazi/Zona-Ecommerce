@@ -1,0 +1,32 @@
+<div class="mt-5 flex flex-wrap justify-center gap-2 sm:gap-4">
+  <button mat-stroked-button class="w-full sm:w-auto sm:min-w-[120px] px-2 py-1 text-sm sm:text-base"
+    (click)="get500Error()">
+    Test 500 error
+  </button>
+  <button mat-stroked-button class="w-full sm:w-auto sm:min-w-[120px] px-2 py-1 text-sm sm:text-base"
+    (click)="get404Error()">
+    Test 404 error
+  </button>
+  <button mat-stroked-button class="w-full sm:w-auto sm:min-w-[120px] px-2 py-1 text-sm sm:text-base"
+    (click)="get400Error()">
+    Test 400 error
+  </button>
+  <button mat-stroked-button class="w-full sm:w-auto sm:min-w-[120px] px-2 py-1 text-sm sm:text-base"
+    (click)="get401Error()">
+    Test 401 error
+  </button>
+  <button mat-stroked-button class="w-full sm:w-auto sm:min-w-[150px] px-2 py-1 text-sm sm:text-base"
+    (click)="get400ValidationError()">
+    Test validation error
+  </button>
+</div>
+
+@if (validationErrors) {
+<div class="mx-auto max-w-lg mt-5 bg-red-100">
+  <ul class="space-y-2 p-2">
+    @for (error of validationErrors; track $index) {
+    <li class="text-red-800">{{error}}</li>
+    }
+  </ul>
+</div>
+}

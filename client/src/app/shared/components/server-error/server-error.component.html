@@ -1,0 +1,23 @@
+<div class="container mx-auto mt-3 md:mt-5 p-3 sm:p-4 lg:p-6 bg-gray-100 rounded-lg shadow-lg max-w-4xl">
+  <h1 class="text-xl md:text-2xl lg:text-3xl font-semibold mb-3 md:mb-4">Internal server error</h1>
+  @if (error) {
+    <div class="space-y-3 md:space-y-4">
+      <h5 class="text-red-600 text-base md:text-lg">{{error.message}}</h5>
+      <p class="font-bold text-sm md:text-base mb-2 md:mb-3">This error comes from the server, not Angular</p>
+      <p class="text-sm md:text-base mb-2 md:mb-3">What to do next?</p>
+
+      <ol class="list-decimal ml-4 md:ml-6 space-y-2 md:space-y-3">
+        <li class="text-sm md:text-base">Check the network tab in chrome dev tools</li>
+        <li class="text-sm md:text-base">
+          Reproduce the error in response.
+          If same error, don't waste time troubleshooting angular code
+        </li>
+      </ol>
+
+      <h5 class="text-lg md:text-xl font-semibold mt-4 md:mt-5 mb-2 md:mb-3">Stack trace</h5>
+      <mat-card class="p-3 md:p-4 bg-white overflow-x-auto">
+        <code class="text-xs md:text-sm lg:text-base whitespace-pre-wrap break-words">{{error.details}}</code>
+      </mat-card>
+    </div>
+  }
+</div>

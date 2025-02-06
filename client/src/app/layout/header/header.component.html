@@ -1,4 +1,4 @@
-<header class="border-b shadow-md p-3 w-full">
+<header class="border-b shadow-md p-3 w-full max-h-20 fixed top-0 z-50 bg-white">
   <div class="flex items-center justify-between max-w-screen-2xl mx-auto">
     <!-- Logo -->
     <img src="/images/logo.png" routerLink="/" alt="app logo" class="max-h-16">
@@ -7,7 +7,7 @@
     <nav class="hidden md:flex gap-6 uppercase text-xl">
       <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
       <a routerLink="/shop" routerLinkActive="active">Shop</a>
-      <a>Contact</a>
+      <a routerLink="/test-error" routerLinkActive="active">Errors</a>
     </nav>
 
     <!-- Desktop Buttons (Visible on larger screens) -->
@@ -34,9 +34,10 @@
   <input type="checkbox" id="mobileMenuToggle" class="hidden peer" />
   <div class="hidden peer-checked:block md:hidden bg-white shadow-lg">
     <nav class="flex flex-col px-4 py-2 uppercase text-xl">
-      <a class="py-3 border-b" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
+      <a class="py-3 border-b" routerLink="/" routerLinkActive="active"
+        [routerLinkActiveOptions]="{exact: true}">Home</a>
       <a class="py-3 border-b" routerLink="/shop" routerLinkActive="active">Shop</a>
-      <a class="py-3 border-b">Contact</a>
+      <a class="py-3 border-b" routerLink="/test-error" routerLinkActive="active">Errors</a>
     </nav>
     <div class="flex flex-col gap-3 px-4 py-4">
       <!-- Cart with Badge -->
@@ -50,3 +51,7 @@
     </div>
   </div>
 </header>
+
+@if (busyService.loading) {
+<mat-progress-bar mode="indeterminate" class="fixed top-20 z-50"></mat-progress-bar>
+}
