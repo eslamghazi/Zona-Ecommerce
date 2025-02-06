@@ -7,7 +7,7 @@ import { ShopParams } from '../../shared/models/shopParams';
 @Injectable({
   providedIn: 'root'
 })
-export class ShopServiceService {
+export class ShopService {
   baseUrl = 'https://localhost:5001/api/'
   private http = inject(HttpClient);
   types: string[] = [];
@@ -32,6 +32,10 @@ export class ShopServiceService {
       params = params.append("search", shopParams.search);
 
     return this.http.get<Pagintaion<Product[]>>(this.baseUrl + 'products', { params })
+  }
+
+  getProduct(id: number) {
+    return this.http.get<Product>(this.baseUrl + 'products/' + id);
   }
 
   getBrands() {

@@ -1,6 +1,6 @@
 import { ShopParams } from './../../shared/models/shopParams';
 import { Component, inject } from '@angular/core';
-import { ShopServiceService } from '../../core/services/shop-service.service';
+import { ShopService } from '../../core/services/shop.service';
 import { Product } from '../../shared/models/product';
 import { ProductItemComponent } from "./product-item/product-item.component";
 import { MatDialog } from '@angular/material/dialog';
@@ -26,13 +26,13 @@ import { FormsModule } from '@angular/forms';
     MatListOption,
     MatMenuTrigger,
     MatPaginator,
-    FormsModule
+    FormsModule,
   ],
   templateUrl: './shop.component.html',
   styleUrl: './shop.component.scss'
 })
 export class ShopComponent {
-  private shopService = inject(ShopServiceService);
+  private shopService = inject(ShopService);
   private dialogService = inject(MatDialog)
   products?: Pagintaion<Product[]>;
   sortOptions = [

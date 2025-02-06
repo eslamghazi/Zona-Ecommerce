@@ -1,5 +1,6 @@
 @if (product) {
-<mat-card appearance="raised" class="flex flex-col h-full max-w-sm mx-auto">
+<mat-card appearance="raised" class="flex flex-col h-full max-w-sm mx-auto product-card"
+  routerLink="/shop/{{product.id}}">
   <!-- Fixed height image -->
   <img src="{{product.pictureUrl}}" alt="image of {{product.name}}" class="w-full object-cover h-48">
 

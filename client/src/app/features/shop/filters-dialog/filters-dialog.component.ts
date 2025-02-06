@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { ShopServiceService } from '../../../core/services/shop-service.service';
+import { ShopService } from '../../../core/services/shop.service';
 import { MatDivider } from '@angular/material/divider';
 import { MatSelectionList, MatListOption } from '@angular/material/list';
 import { MatButton } from '@angular/material/button';
@@ -14,7 +14,7 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './filters-dialog.component.scss'
 })
 export class FiltersDialogComponent {
-  shopService = inject(ShopServiceService);
+  shopService = inject(ShopService);
   private dialogRef = inject(MatDialogRef<FiltersDialogComponent>);
   data = inject(MAT_DIALOG_DATA);
 
