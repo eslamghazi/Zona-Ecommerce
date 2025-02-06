@@ -1,3 +1,4 @@
+import { NgClass } from '@angular/common';
 import { Component } from '@angular/core';
 import { MatBadge } from '@angular/material/badge'
 import { MatButton } from '@angular/material/button'
@@ -8,7 +9,7 @@ import { MatIcon } from '@angular/material/icon'
   imports: [
     MatBadge,
     MatButton,
-    MatIcon
+    MatIcon,
   ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'

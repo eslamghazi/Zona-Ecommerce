@@ -1,0 +1,20 @@
+@if (product) {
+<mat-card appearance="raised" class="flex flex-col h-full max-w-sm mx-auto">
+  <!-- Fixed height image -->
+  <img src="{{product.pictureUrl}}" alt="image of {{product.name}}" class="w-full object-cover h-48">
+
+  <!-- Content area expands to fill available space -->
+  <mat-card-content class="mt-2 flex-grow">
+    <h2 class="text-sm font-semibold uppercase">{{product.name}}</h2>
+    <p class="font-light">{{product.price| currency}}</p>
+  </mat-card-content>
+
+  <!-- Actions pinned at the bottom -->
+  <mat-card-actions>
+    <button mat-stroked-button class="w-full">
+      <mat-icon>add_shopping_cart</mat-icon>
+      Add to cart
+    </button>
+  </mat-card-actions>
+</mat-card>
+}
