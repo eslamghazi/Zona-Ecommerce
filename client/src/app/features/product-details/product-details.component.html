@@ -1,43 +1,44 @@
 @if(product){
-  <section class="py-4 md:py-8">
-    <div class="max-w-screen-2xl px-4 mx-auto">
-      <!-- Changed grid to responsive columns -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-        <!-- Image section adjustments -->
-        <div class="max-w-xl mx-auto px-4 sm:px-6 lg:px-8">
-          <img class="w-full h-auto object-contain" src="{{product.pictureUrl}}" alt="Product image">
-        </div>
+<section class="py-4 md:py-8">
+  <div class="max-w-screen-2xl px-4 mx-auto">
+    <!-- Changed grid to responsive columns -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+      <!-- Image section adjustments -->
+      <div class="max-w-xl mx-auto px-4 sm:px-6 lg:px-8">
+        <img class="w-full h-auto object-contain" src="{{product.pictureUrl}}" alt="Product image">
+      </div>
 
-        <!-- Content section adjustments -->
-        <div class="px-4 sm:px-6 lg:px-8">
-          <h1 class="text-xl md:text-2xl lg:text-3xl font-semibold text-gray-900">{{product.name}}</h1>
-
-          <div class="mt-3 md:mt-4 items-center gap-4 flex">
-            <p class="text-2xl md:text-3xl font-extrabold text-gray-900">
-              {{product.price | currency}}
-            </p>
-          </div>
-
-          <!-- Responsive button group -->
-          <div class="flex flex-col sm:flex-row gap-4 mt-4 md:mt-6">
-            <button mat-flat-button class="match-input-height w-full sm:w-auto">
-              <mat-icon>shopping_cart</mat-icon>
-              Add to cart
-            </button>
-
-            <mat-form-field appearance="outline" class="w-full sm:w-32">
-              <mat-label>Quantity</mat-label>
-              <input matInput type="number">
-            </mat-form-field>
-          </div>
-
-          <mat-divider class="my-4 md:my-6"></mat-divider>
-
-          <p class="mb-4 md:mb-6 text-base md:text-lg text-gray-500">
-            {{product.description}}
+      <!-- Content section adjustments -->
+      <div class="px-4 sm:px-6 lg:px-8">
+        <h1 class="text-xl md:text-2xl lg:text-3xl font-semibold text-gray-900">{{product.name}}</h1>
+        <p class="text-blue-500">You have {{quantityInCart}} of this item in your cart</p>
+        <div class="mt-3 md:mt-4 items-center gap-4 flex">
+          <p class="text-2xl md:text-3xl font-extrabold text-gray-900">
+            {{product.price | currency}}
           </p>
         </div>
+
+        <!-- Responsive button group -->
+        <div class="flex flex-col sm:flex-row gap-4 mt-4 md:mt-6">
+          <button [disabled]="quantity === quantityInCart" (click)="updateCart()" mat-flat-button
+            class="match-input-height w-full sm:w-auto">
+            <mat-icon>shopping_cart</mat-icon>
+            {{getButtonText()}}
+          </button>
+
+          <mat-form-field appearance="outline" class="w-full sm:w-32">
+            <mat-label>Quantity</mat-label>
+            <input matInput min="0" [(ngModel)]="quantity" type="number">
+          </mat-form-field>
+        </div>
+
+        <mat-divider class="my-4 md:my-6"></mat-divider>
+
+        <p class="mb-4 md:mb-6 text-base md:text-lg text-gray-500">
+          {{product.description}}
+        </p>
       </div>
     </div>
-  </section>
-  }
+  </div>
+</section>
+}

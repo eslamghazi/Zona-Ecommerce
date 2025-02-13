@@ -11,12 +11,13 @@
     </nav>
 
     <!-- Desktop Buttons (Visible on larger screens) -->
-    <div class="hidden md:flex gap-3 items-center">
+    <div class="hidden md:flex gap-3 items-center" role="button">
       <!-- Cart with Badge -->
-      <div class="relative">
+      <div class="relative" routerLink="/cart" routerLinkActive="active">
         <mat-icon>shopping_cart</mat-icon>
         <span
-          class="absolute top-0 right-0 transform translate-x-1/2 -translate-y-1/2 bg-red-500 text-white text-xs rounded-full px-1.5 py-0.5">5</span>
+          class="absolute top-0 right-0 transform translate-x-1/2 -translate-y-1/2 bg-red-500 text-white text-xs rounded-full px-1.5 py-0.5">{{cartService.itemCount()
+          ?? 0}}</span>
       </div>
       <button mat-stroked-button>Login</button>
       <button mat-stroked-button>Register</button>
@@ -39,12 +40,13 @@
       <a class="py-3 border-b" routerLink="/shop" routerLinkActive="active">Shop</a>
       <a class="py-3 border-b" routerLink="/test-error" routerLinkActive="active">Errors</a>
     </nav>
-    <div class="flex flex-col gap-3 px-4 py-4">
+    <div class="flex flex-col gap-3 px-4 py-4" role="button">
       <!-- Cart with Badge -->
-      <div class="relative">
+      <div class="relative" routerLink="/cart" routerLinkActive="active">
         <mat-icon>shopping_cart</mat-icon>
         <span
-          class="absolute top-0 right-auto left-2 transform translate-x-1/2 -translate-y-1/2 bg-red-500 text-white text-xs rounded-full px-1.5 py-0.5">5</span>
+          class="absolute top-0 right-auto left-2 transform translate-x-1/2 -translate-y-1/2 bg-red-500 text-white text-xs rounded-full px-1.5 py-0.5">{{cartService.itemCount()
+          ?? 0}}</span>
       </div>
       <button mat-stroked-button class="w-full">Login</button>
       <button mat-stroked-button class="w-full">Register</button>
